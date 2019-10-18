@@ -5,6 +5,12 @@
     - name: Expose vars
       include_vars: "../roles/rhsso/defaults/main.yml"
     -
+      name: Install launcher SSO
+      include_role:
+        name: launcher
+        tasks_from: provision-sso
+      when: launcher
+    -
       name: Install rhsso
       include_role:
         name: rhsso
