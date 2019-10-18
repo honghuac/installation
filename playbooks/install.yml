@@ -30,6 +30,3 @@
         msg: All services have been provisioned successfully.
     - debug:
         msg: Please add '{{ callback_url }}' as the Authorization callback URL of your GitHub OAuth Application.
-      vars:
-        callback_url: "{{ launcher_sso_route }}/auth/realms/{{ eval_launcher_sso_realm }}/broker/github/endpoint"
-      when: launcher
