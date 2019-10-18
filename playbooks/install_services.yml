@@ -3,6 +3,12 @@
   gather_facts: true
   tasks:
     - name: Expose vars
+      include_vars: "../roles/rhsso/defaults/main.yml"
+    -
+      name: Set eval_app_host var
+      set_fact:
+        eval_app_host: "{{ hostvars['EVAL_VARS']['eval_app_host'] }}"    
+    - name: Expose vars
       include_vars: "../roles/3scale/defaults/main.yml"
     - set_fact:
         threescale_wildcard_domain: "amp.{{ eval_app_host }}"
